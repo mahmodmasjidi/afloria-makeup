@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Afloria Makeup — Store</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/css/aflorya.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="logo">
+        <img src="images/logo.png" alt="Afloria Makeup Logo">
+      </div>
+      <div>
+        <h1>Afloria Makeup</h1>
+        <p>&amp; Cosmetics — Elegant beauty products</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#products">Products</a>
+    </nav>
+
+    <!-- Google Translate Dil Seçici -->
+    <div class="lang-select" id="google_translate_element"></div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="kicker">New Collection</div>
+      <h2>Natural Glow — Timeless Elegance</h2>
+      <p class="lead">Delight your skin with Afloria's special formulas. Limited stock — contact us on WhatsApp for easy ordering.</p>
+
+      <div class="cta">
+        <a class="btn btn-primary" href="javascript:openWhatsApp()">Order on WhatsApp</a>
+        <a class="btn btn-ghost" href="#products">Browse Products</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <img src="images/mainproduct.png" alt="Featured product">
+        <div style="text-align:left">
+          <div style="font-size:14px;color:#8b6d68">Afloria — Compact Blush</div>
+          <div class="price">$19.99</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <!-- products kısmını güncelledim -->
+<main class="section" id="products">
+  <h3 class="section-title">Popular Products</h3>
+  <div class="grid" id="product-grid">
+    <!-- Ürünler MongoDB’den yüklenecek -->
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> Afloria Makeup — All rights reserved.
+  </footer>
+
+  <!-- WhatsApp Fixed Button -->
+  <div class="wa-fixed">
+    <a class="wa-btn" href="javascript:openWhatsApp()">
+      <div class="wa-circle">💬</div>
+      Contact on WhatsApp
+    </a>
+  </div>
+
+  <!-- Google Translate Script -->
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fa',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="js/aflorya.js"></script>
+  <script>
+    const WHATSAPP_NUMBER = "93772908109"; // ← Buraya kendi numaranı gir (başında ülke kodu ile)
+
+    function openWhatsApp(productName) {
+      let message = "Hello, I would like to order";
+      if (productName) message += `: ${productName}`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+
+</body>
+</html>

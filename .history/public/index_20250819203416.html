@@ -1,0 +1,58 @@
+<div class="grid" id="product-grid">
+  <!-- Ürünler JS ile yüklenecek -->
+</div>
+
+<script>
+// Ürünleri MongoDB'den çekip ekleme
+async function loadProducts() {
+  try {
+    const res = await fetch('/api/products');
+    const products = await res.json();
+    const grid = document.getElementById('product-grid');
+    grid.innerHTML = '';
+
+    products.forEach(product => {
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      // Ana foto + küçük thumbnail
+      let thumbsHtml = '';
+      if (product.imgs && product.imgs.length > 1) {
+        thumbsHtml = `<div class="thumbs">` + 
+          product.imgs.map(img => `<img src="${img}" alt="${product.name}">`).join('') +
+          `</div>`;
+      }
+
+      card.innerHTML = `
+        <div class="product-images">
+          <img src="${product.imgs[0]}" alt="${product.name}" class="main-img">
+          ${thumbsHtml}
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">${product.name}</h3>
+          <div class="price-small">$${product.price}</div>
+          <a class="whatsapp" href="javascript:openWhatsApp('${product.name}')">Order on WhatsApp</a>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    // Thumbnail tıklayınca ana foto değişimi
+    document.querySelectorAll('.product-card, .card').forEach(card => {
+      const mainImg = card.querySelector('.main-img');
+      if (!mainImg) return;
+      card.querySelectorAll('.thumbs img').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          mainImg.src = thumb.src;
+        });
+      });
+    });
+
+  } catch (err) {
+    console.error('Ürünler yüklenemedi:', err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadProducts);
+</script>
