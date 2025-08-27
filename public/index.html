@@ -39,8 +39,8 @@
 }
 
 .hero-card img {
-  width: 50%;
-  height: 100%;
+  width: 200px;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -88,10 +88,12 @@
 }
 
 .product-card img {
-  width: 100%;
-  height: 180px;
+  width: 150px;
+  height: 250px;
   object-fit: cover;
   border-radius: 10px;
+  display: block;
+  margin: 0 auto;
 }
 
 .product-card h4 {
@@ -166,7 +168,7 @@
         <img src="images/mainproduct.png" alt="Featured product">
         <div class="info">
           <div class="product-name">Afloria — Compact Blush</div>
-          <div class="price">$19.99</div>
+          <div class="price">19.99</div>
         </div>
       </div>
     </div>
@@ -236,7 +238,7 @@
               <img src="${imgSrc}" alt="${p.name}" />
               <h4>${p.name}</h4>
               <p>${p.desc || ''}</p>
-              <div class="price">$${p.price}</div>
+              <div class="price">${p.price}</div>
               <button onclick="openWhatsApp('${p.name}')">Order on WhatsApp</button>
             `;
             grid.appendChild(div);

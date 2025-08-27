@@ -345,3 +345,16 @@ footer {
 #google_translate_element select option {
   color: black;
 }
+.product-card {
+  position: relative;
+}
+
+.product-card img {
+  width: 150px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  transition: opacity 0.3s ease;
+}
