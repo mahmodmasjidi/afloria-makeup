@@ -358,3 +358,31 @@ footer {
   margin: 0 auto;
   transition: opacity 0.3s ease;
 }
+/* WhatsApp Order Button */
+.product-card button {
+  background: #25d366; /* WhatsApp yeşili */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px; /* yuvarlak köşeler */
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-card button:hover {
+  background: #1ebc57; /* hover efekti */
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Buton içine emoji ekleyebilirsin */
+.product-card button::before {
+  content: "💬"; /* WhatsApp simgesi */
+  font-size: 1.1rem;
+}
