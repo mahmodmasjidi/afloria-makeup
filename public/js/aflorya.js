@@ -23,7 +23,7 @@ async function loadProducts() {
         <h3>${product.name}</h3>
         <p>${product.desc || ''}</p>
         <div class="meta">
-  <div class="price">${product.price} AFG</div>
+  <div class="price">${product.price} AFN</div>
           <a class="whatsapp" href="javascript:openWhatsApp('${product.name}')">Order on WhatsApp</a>
         </div>
       `;
