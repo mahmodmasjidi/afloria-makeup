@@ -1,0 +1,16 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+
+# Build/coverage
+dist/
+build/
+. next/
+coverage/
+
+# Env/secrets
+.env
+.env.*
