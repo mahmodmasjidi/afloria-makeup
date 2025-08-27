@@ -11,7 +11,8 @@ async function loadProducts() {
 
     products.forEach(product => {
       const card = document.createElement('article');
-      card.className = 'card';
+  card.className = 'product-card';
+
 
       // Slider için img dizisi
       const imgs = product.imgs && product.imgs.length > 0 ? product.imgs.map(i => "/images/" + i) : [product.img || "/images/mainproduct.png"];
