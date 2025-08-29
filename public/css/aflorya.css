@@ -445,3 +445,6 @@ a.whatsapp {
 a.whatsapp:hover {
   background-color: #128C7E;
 }
+.product-card {
+  width: 100%; /* grid sütunu boyunca */
+}
