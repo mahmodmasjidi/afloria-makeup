@@ -358,3 +358,35 @@ footer {
   margin: 0 auto;
   transition: opacity 0.3s ease;
 }
+/* -------------------------
+   Categories
+-------------------------- */
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.category-btn {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--accent);
+  background: var(--card);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.category-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.category-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
