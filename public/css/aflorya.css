@@ -390,3 +390,57 @@ footer {
   color: #fff;
   box-shadow: var(--shadow);
 }
+.product {
+  width: 250px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  background: #fff;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+.product img:hover {
+  transform: scale(1.05);
+}
+
+.thumbnails {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.thumbnails img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, border 0.3s;
+}
+
+.thumbnails img:hover {
+  transform: scale(1.1);
+  border: 2px solid #25D366;
+}
+
+a.whatsapp {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #25D366;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+a.whatsapp:hover {
+  background-color: #128C7E;
+}
