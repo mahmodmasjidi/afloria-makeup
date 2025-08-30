@@ -328,3 +328,42 @@ footer {
 #google_translate_element select option {
   color: black;
 }
+/* -------------------------
+   Category Buttons
+-------------------------- */
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.category-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  background: var(--card);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .category-bar {
+    justify-content: center;
+  }
+  .category-btn {
+    flex: 1 1 45%; /* iki buton yan yana, taşarsa alt satıra geçer */
+    text-align: center;
+  }
+}
