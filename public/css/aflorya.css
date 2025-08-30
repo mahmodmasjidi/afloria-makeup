@@ -141,14 +141,21 @@ nav a:hover {
   color: white;
 }
 
-/* Hero Card */
+/* -------------------------
+   Hero Card (Main Product)
+-------------------------- */
 .hero-card {
   background: var(--card);
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: 0 12px 28px rgba(59,43,40,0.15);
   text-align: center;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .hero-card:hover {
@@ -156,25 +163,33 @@ nav a:hover {
 }
 
 .hero-card img {
-  width: 100%;
-  height: 250px;
+  width: auto;
+  max-width: 220px;   /* hero card için dik format */
+  height: 320px;
   object-fit: cover;
   border-radius: var(--radius);
   margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.hero-card img:hover {
+  transform: scale(1.03);
 }
 
 .hero-card .product-name {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--muted);
   margin-bottom: 0.3rem;
+  text-align: center;
 }
 
 .hero-card .price {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
 }
+
 
 /* Products Grid */
 .section {
@@ -214,17 +229,16 @@ nav a:hover {
   box-shadow: 0 12px 28px rgba(59,43,40,0.15);
 }
 
-/* Product Card Image */
 .product-card img {
-  width: auto;           /* genişlik orantılı */
-  max-width: 180px;      /* kartın içine sığacak maksimum genişlik */
-  height: 250px;         /* dik görünüm için sabit yükseklik */
-  object-fit: cover;     /* kırpma yaparken oran korunsun */
+  width: auto;
+  max-width: 180px;  /* dik format için genişlik sınırı */
+  height: 250px;     /* sabit yükseklik */
+  object-fit: cover;
   border-radius: var(--radius);
   margin-bottom: 0.8rem;
   display: block;
   margin-left: auto;
-  margin-right: auto;    /* ortala */
+  margin-right: auto;
   transition: transform 0.3s ease;
 }
 
