@@ -424,3 +424,20 @@ footer {
     text-align: center;
   }
 }
+/* Responsive Products Grid (Telefonlar) */
+@media(max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* her satırda 2 ürün */
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: start;
+  }
+  .product-card img {
+    height: 220px;
+    max-width: 150px;
+  }
+  .category-btn {
+    flex: 1 1 45%; /* kategori butonları yan yana */
+    text-align: center;
+  }
+}
