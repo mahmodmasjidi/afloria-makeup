@@ -72,3 +72,20 @@ async function loadProducts() {
 
 // Sayfa yüklendiğinde ürünleri çek
 document.addEventListener('DOMContentLoaded', loadProducts);
+// Kategori filtre butonları
+document.querySelectorAll('.category-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // aktif butonu değiştir
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.category;
+    document.querySelectorAll('.category-section').forEach(section => {
+      if (cat === "all" || section.querySelector('.category-title').textContent.toLowerCase() === cat) {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    });
+  });
+});

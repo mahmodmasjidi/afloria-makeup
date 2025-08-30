@@ -449,3 +449,10 @@ a.whatsapp:hover {
 .product-card {
   width: 100%; /* grid sütunu boyunca */
 }
+
+/* Logo boyutunu sabitle */
+header .logo img {
+  max-width: 120px;   /* sabit genişlik */
+  height: auto;
+  display: block;
+}
