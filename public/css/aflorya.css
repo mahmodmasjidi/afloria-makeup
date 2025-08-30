@@ -194,7 +194,24 @@ nav a:hover {
   gap: 2rem;
 }
 
+/* Product Card Image */
+.product-card img {
+  width: auto;            /* genişlik otomatik, orantıyı korur */
+  height: 250px;          /* yükseklik sabit dik form için */
+  object-fit: cover;      /* fotoğraf kartı yüksekliğine sığsın */
+  border-radius: var(--radius);
+  margin-bottom: 0.8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;     /* ortala */
+  transition: opacity 0.3s ease;
+}
+
+/* Product Card */
 .product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* tüm içerik ortalanacak */
   background: var(--card);
   padding: 1rem;
   border-radius: var(--radius);
@@ -203,18 +220,11 @@ nav a:hover {
   text-align: center;
 }
 
+
 .product-card:hover {
   transform: translateY(-5px);
 }
 
-.product-card img {
-  width: 100%;
-  height: 200px; /* optimize edilmiş */
-  object-fit: cover;
-  border-radius: var(--radius);
-  margin-bottom: 0.8rem;
-  transition: opacity 0.3s ease;
-}
 
 .product-card h4 {
   font-size: 1.2rem;
