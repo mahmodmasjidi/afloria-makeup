@@ -23,14 +23,12 @@ body {
   line-height: 1.6;
 }
 
-/* -------------------------
-   Header
--------------------------- */
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 5%;
+  padding: 1rem 5%;
   background: var(--card);
   box-shadow: var(--shadow);
   position: sticky;
@@ -68,15 +66,20 @@ nav a:hover {
   color: var(--accent);
 }
 
+/* Logo */
+.logo img {
+  max-width: 80px; /* header için uygun boyut */
+  height: auto;
+  display: block;
+}
+
 /* Dil Seçici */
 .lang-select {
   margin-left: 2rem;
   font-size: 0.9rem;
 }
 
-/* -------------------------
-   Hero Section
--------------------------- */
+/* Hero Section */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -138,9 +141,7 @@ nav a:hover {
   color: white;
 }
 
-/* -------------------------
-   Hero Main Product Card
--------------------------- */
+/* Hero Card */
 .hero-card {
   background: var(--card);
   padding: 1.5rem;
@@ -175,9 +176,7 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* -------------------------
-   Products Grid
--------------------------- */
+/* Products Grid */
 .section {
   padding: 3rem 5%;
 }
@@ -210,10 +209,11 @@ nav a:hover {
 
 .product-card img {
   width: 100%;
-  height: 180px;
+  height: 200px; /* optimize edilmiş */
   object-fit: cover;
   border-radius: var(--radius);
   margin-bottom: 0.8rem;
+  transition: opacity 0.3s ease;
 }
 
 .product-card h4 {
@@ -247,9 +247,7 @@ nav a:hover {
   background: var(--gold);
 }
 
-/* -------------------------
-   Footer
--------------------------- */
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem 0;
@@ -257,9 +255,7 @@ footer {
   color: var(--muted);
 }
 
-/* -------------------------
-   WhatsApp Fixed Button
--------------------------- */
+/* WhatsApp Fixed Button */
 .wa-fixed {
   position: fixed;
   bottom: 20px;
@@ -296,9 +292,7 @@ footer {
   justify-content: center;
 }
 
-/* -------------------------
-   Responsive
--------------------------- */
+/* Responsive */
 @media(max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
@@ -312,18 +306,7 @@ footer {
   }
 }
 
-/* -------------------------
-   Logo
--------------------------- */
-.logo img {
-  max-width: 120px;
-  height: auto;
-  display: block;
-}
-
-/* -------------------------
-   Google Translate
--------------------------- */
+/* Google Translate */
 #google_translate_element select {
   padding: 8px 16px;
   border: 2px solid var(--accent);
@@ -344,17 +327,4 @@ footer {
 }
 #google_translate_element select option {
   color: black;
-}
-.product-card {
-  position: relative;
-}
-
-.product-card img {
-  width: 150px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-  transition: opacity 0.3s ease;
 }
