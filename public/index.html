@@ -8,168 +8,22 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-  :root {
-    --bg: #fbf6f5;
-    --card: #fff;
-    --accent: #b88a83;
-    --muted: #c99da1;
-    --gold: #d4b28a;
-    --text: #3b2b28;
-    --shadow: 0 8px 24px rgba(59,43,40,0.08);
-    --radius: 14px;
-    --transition: all 0.3s ease;
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 5%;
-    background: var(--card);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  .brand { display:flex; align-items:center; gap:1rem; }
-  .brand h1 { font-family:'Playfair Display', serif; font-size:1.6rem; font-weight:700; }
-  .brand p { font-size:0.85rem; color: var(--muted); }
-  nav a { margin-left:2rem; text-decoration:none; font-weight:500; color:var(--text); transition:var(--transition); }
-  nav a:hover { color: var(--accent); }
-
-  /* Google Translate */
-  #google_translate_element select {
-    padding:8px 16px;
-    border:2px solid var(--accent);
-    border-radius:12px;
-    background:transparent;
-    color:var(--accent);
-    font-weight:700;
-    font-family:"Montserrat", sans-serif;
-    cursor:pointer;
-    min-width:140px;
-    font-size:16px;
-    transition:0.3s;
-  }
-  #google_translate_element select:hover,
-  #google_translate_element select:focus { background:var(--accent); color:white; }
-
-  /* Hero Section */
-  .hero {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:2rem;
-    align-items:center;
-    padding:4rem 5%;
-  }
-  .hero-left .kicker { text-transform:uppercase; color:var(--accent); font-size:0.9rem; margin-bottom:0.6rem; }
-  .hero-left h2 { font-family:'Playfair Display', serif; font-size:2.5rem; margin-bottom:1rem; }
-  .hero-left .lead { font-size:1.1rem; margin-bottom:2rem; color:var(--text); }
-  .cta { display:flex; gap:1rem; }
-  .btn { padding:0.8rem 1.6rem; border-radius:var(--radius); text-decoration:none; font-weight:600; transition:var(--transition); }
-  .btn-primary { background:var(--accent); color:white; box-shadow:var(--shadow); }
-  .btn-primary:hover { background:var(--gold); }
-  .btn-ghost { border:2px solid var(--accent); color:var(--accent); }
-  .btn-ghost:hover { background:var(--accent); color:white; }
-
-  /* Hero Card */
-  .hero-right { display:flex; justify-content:center; align-items:center; }
-  .hero-card {
-    background:var(--card);
-    padding:1.5rem;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    text-align:center;
-    transition:var(--transition);
-    max-width:400px;
-  }
-  .hero-card:hover { transform:translateY(-5px); }
-  .hero-card img { width:100%; height:250px; object-fit:cover; border-radius:var(--radius); margin-bottom:1rem; }
-  .hero-card .product-name { font-size:1rem; font-weight:600; color:var(--muted); margin-bottom:0.3rem; }
-  .hero-card .price { font-size:1.4rem; font-weight:700; color:var(--accent); }
-
-  /* Products Section */
-  .section { padding:3rem 5%; }
-  .section-title { font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:2rem; text-align:center; }
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
-    gap:2rem;
-    min-height:200px; /* render sorunu için */
-  }
-  .product-card {
-    background:var(--card);
-    padding:1rem;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    text-align:center;
-    transition:var(--transition);
-    width:100%;
-  }
-  .product-card:hover { transform:translateY(-5px); }
-  .product-card img { width:100%; height:250px; object-fit:cover; border-radius:var(--radius); margin-bottom:0.8rem; transition:opacity 0.3s ease; }
-  .product-card h4 { font-size:1.2rem; margin-bottom:0.5rem; }
-  .product-card p { font-size:0.95rem; margin-bottom:1rem; color:var(--muted); }
-  .product-card .price { font-weight:600; color:var(--accent); margin-bottom:0.5rem; }
-  .product-card button { background:var(--accent); color:#fff; border:none; padding:0.6rem 1.2rem; border-radius:var(--radius); cursor:pointer; font-weight:600; }
-  .product-card button:hover { background:var(--gold); }
-
-  /* Categories */
-  .categories { display:flex; justify-content:center; gap:1rem; margin:1.5rem 0 2.5rem; }
-  .category-btn {
-    padding:0.6rem 1.4rem;
-    border:2px solid var(--accent);
-    background:var(--card);
-    border-radius:25px;
-    cursor:pointer;
-    font-size:0.95rem;
-    font-weight:600;
-    color:var(--accent);
-    transition:var(--transition);
-  }
-  .category-btn:hover { background:var(--accent); color:#fff; }
-  .category-btn.active { background:var(--accent); color:#fff; box-shadow:var(--shadow); }
-
-  /* Footer */
-  footer { text-align:center; padding:2rem 0; font-size:0.9rem; color:var(--muted); }
-
-  /* WhatsApp Fixed Button */
-  .wa-fixed { position:fixed; bottom:20px; right:20px; }
-  .wa-btn { display:flex; align-items:center; gap:0.6rem; background:#25d366; color:white; padding:0.8rem 1.2rem; border-radius:50px; text-decoration:none; font-weight:600; box-shadow:var(--shadow); transition:var(--transition); }
-  .wa-btn:hover { background:#1ebc57; }
-  .wa-circle { background:white; color:#25d366; font-size:1.2rem; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
-
-  /* Responsive */
-  @media(max-width:768px){
-    .hero { grid-template-columns:1fr; text-align:center; }
-    nav { display:none; }
-    .cta { justify-content:center; }
-  }
-
-  </style>
+  <!-- External CSS (tek kaynak) -->
+  <link rel="stylesheet" href="/css/aflorya.css">
 </head>
 <body>
 
 <header>
   <div class="brand">
-    <div class="logo"><img src="images/logo.png" alt="Afloria Makeup Logo"></div>
+    <div class="logo"><img src="/images/logo.png" alt="Afloria Makeup Logo"></div>
     <div>
       <h1>Afloria Makeup</h1>
       <p>&amp; Cosmetics — Elegant beauty products</p>
     </div>
   </div>
   <nav><a href="#products">Products</a></nav>
+
+  <!-- tek google translate div -->
   <div class="lang-select" id="google_translate_element"></div>
 </header>
 
@@ -185,7 +39,7 @@
   </div>
   <div class="hero-right">
     <div class="hero-card">
-      <img src="images/ponds1.jpg" alt="Featured product">
+      <img src="/images/ponds1.jpg" alt="Featured product">
       <div class="product-name">POND'S AGE MIRACLE CLEANSER & CREAM</div>
       <div class="price">850 AFN</div>
     </div>
@@ -194,11 +48,14 @@
 
 <main class="section" id="products">
   <h3 class="section-title">Popular Products</h3>
+
+  <!-- kategori butonları: data-category değerleri backend ile uyumlu olmalı -->
   <div class="categories">
     <button class="category-btn active" data-category="all">All</button>
-    <button class="category-btn" data-category="makeup">Makeup</button>
-    <button class="category-btn" data-category="cosmetics">Cosmetics</button>
+    <button class="category-btn" data-category="Makeup">Makeup</button>
+    <button class="category-btn" data-category="Cosmetic">Cosmetic</button>
   </div>
+
   <div class="grid" id="product-grid">
     <!-- Ürünler JS ile yüklenecek -->
   </div>
@@ -213,61 +70,18 @@
   </a>
 </div>
 
-<!-- JS -->
-<script>
-const WHATSAPP_NUMBER = "93772908109";
+<!-- Scripts -->
+<script src="/js/aflorya.js"></script>
 
-function openWhatsApp(productName){
-  let message = "Hello, I would like to order";
-  if(productName) message += `: ${productName}`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
-}
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-async function loadProducts(){
-  try{
-    const res = await fetch('/api/products');
-    const products = await res.json();
-    const grid = document.getElementById('product-grid');
-    grid.innerHTML = '';
-
-    products.forEach(product => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
-
-      const imgs = product.imgs && product.imgs.length>0 ? product.imgs.map(i => "/images/"+i) : ["/images/mainproduct.png"];
-      let currentImg = 0;
-
-      card.innerHTML = `
-        <img src="${imgs[0]}" alt="${product.name}">
-        <h4>${product.name}</h4>
-        <p>${product.desc||''}</p>
-        <div class="price">${product.price} AFN</div>
-        <button onclick="openWhatsApp('${product.name}')">Order on WhatsApp</button>
-      `;
-      grid.appendChild(card);
-
-      if(imgs.length>1){
-        const imgEl = card.querySelector('img');
-        setInterval(()=>{ currentImg=(currentImg+1)%imgs.length; imgEl.src=imgs[currentImg]; }, 2500);
-      }
-    });
-  }catch(err){
-    console.error('Ürünler yüklenemedi:',err);
+<!-- Google Translate -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,fa',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
   }
-}
-
-document.addEventListener('DOMContentLoaded', loadProducts);
-
-// Google Translate
-function googleTranslateElementInit(){
-  new google.translate.TranslateElement({
-    pageLanguage:'en',
-    includedLanguages:'en,fa',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
