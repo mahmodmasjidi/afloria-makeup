@@ -2,31 +2,37 @@ import express from "express";
 import mongoose from "mongoose";
 import AdminJS from "adminjs";
 import AdminJSExpress from "@adminjs/express";
-import * as AdminJSMongoose from "@adminjs/mongoose"; // <-- bu şekilde import et
-
+import * as AdminJSMongoose from "@adminjs/mongoose";
 import path from "path";
 
 // -------------------------
 // MongoDB Bağlantısı
-
 // -------------------------
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://maama:Alam4321@products.7svhkvw.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URI =
+  process.env.MONGO_URI ||
+  "mongodb+srv://maama:Alam4321@products.7svhkvw.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("MongoDB bağlantısı başarılı"))
-.catch(err => console.error("MongoDB bağlantı hatası:", err));
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB bağlantısı başarılı"))
+  .catch((err) => console.error("MongoDB bağlantı hatası:", err));
 
 // -------------------------
 // Mongoose Model
 // -------------------------
 const ProductSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   price: Number,
   desc: String,
-  imgs: [String]
+  imgs: [String],
+  category: {
+    type: String,
+    enum: ["makeup", "cosmetic"], // sadece bu iki kategoriye izin ver
+    required: true,
+  },
 });
 
 const Product = mongoose.model("Product", ProductSchema);
@@ -34,10 +40,28 @@ const Product = mongoose.model("Product", ProductSchema);
 // -------------------------
 // AdminJS Ayarları
 // -------------------------
-AdminJS.registerAdapter({ Database: AdminJSMongoose.Database, Resource: AdminJSMongoose.Resource });
+AdminJS.registerAdapter({
+  Database: AdminJSMongoose.Database,
+  Resource: AdminJSMongoose.Resource,
+});
 
 const adminJs = new AdminJS({
-  resources: [Product],
+  resources: [
+    {
+      resource: Product,
+      options: {
+        properties: {
+          name: { isTitle: true },
+          category: {
+            availableValues: [
+              { value: "makeup", label: "Makeup" },
+              { value: "cosmetic", label: "Cosmetic" },
+            ],
+          },
+        },
+      },
+    },
+  ],
   rootPath: "/admin",
 });
 
@@ -48,11 +72,8 @@ const router = AdminJSExpress.buildRouter(adminJs);
 // -------------------------
 const app = express();
 
-// JSON ve form verisi okuma
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Public klasörünü statik olarak sun
 app.use(express.static(path.join(process.cwd(), "public")));
 
 // AdminJS route
