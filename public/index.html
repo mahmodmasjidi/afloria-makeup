@@ -122,6 +122,66 @@ function googleTranslateElementInit(){
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const grid = document.getElementById('product-grid');
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  let allProducts = [];
+
+  // Ürünleri yükle
+  async function loadProducts() {
+    try {
+      const res = await fetch('/api/products');
+      const products = await res.json();
+      allProducts = products; // tüm ürünleri sakla
+      renderProducts('all');  // başlangıçta tüm ürünleri göster
+    } catch(err) {
+      console.error('Ürünler yüklenemedi:', err);
+    }
+  }
+
+  // Ürünleri filtreleyip render et
+  function renderProducts(category) {
+    grid.innerHTML = '';
+    const filtered = category === 'all' ? allProducts : allProducts.filter(p => p.category === category);
+    
+    filtered.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+
+      const imgs = product.imgs && product.imgs.length > 0 ? product.imgs.map(i => "/images/"+i) : ["/images/mainproduct.png"];
+      let currentImg = 0;
+
+      card.innerHTML = `
+        <img src="${imgs[0]}" alt="${product.name}">
+        <h4>${product.name}</h4>
+        <p>${product.desc || ''}</p>
+        <div class="price">${product.price} AFN</div>
+        <button onclick="openWhatsApp('${product.name}')">Order on WhatsApp</button>
+      `;
+      grid.appendChild(card);
+
+      if(imgs.length>1){
+        const imgEl = card.querySelector('img');
+        setInterval(()=>{ currentImg=(currentImg+1)%imgs.length; imgEl.src=imgs[currentImg]; }, 2500);
+      }
+    });
+  }
+
+  // Butonlara tıklama olayları
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const category = btn.getAttribute('data-category');
+      renderProducts(category);
+    });
+  });
+
+  loadProducts();
+});
+</script>
 
 </body>
 </html>
