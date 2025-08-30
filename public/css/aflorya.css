@@ -194,55 +194,64 @@ nav a:hover {
   gap: 2rem;
 }
 
-/* Product Card Image */
-.product-card img {
-  width: auto;            /* genişlik otomatik, orantıyı korur */
-  height: 250px;          /* yükseklik sabit dik form için */
-  object-fit: cover;      /* fotoğraf kartı yüksekliğine sığsın */
-  border-radius: var(--radius);
-  margin-bottom: 0.8rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;     /* ortala */
-  transition: opacity 0.3s ease;
-}
-
 /* Product Card */
 .product-card {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* tüm içerik ortalanacak */
+  align-items: center; /* içerik ortalanacak */
   background: var(--card);
   padding: 1rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: var(--transition);
   text-align: center;
+  overflow: hidden; /* taşmaları engeller */
 }
 
-
+/* Product Card Hover */
 .product-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(59,43,40,0.15);
 }
 
+/* Product Card Image */
+.product-card img {
+  width: auto;           /* genişlik orantılı */
+  max-width: 180px;      /* kartın içine sığacak maksimum genişlik */
+  height: 250px;         /* dik görünüm için sabit yükseklik */
+  object-fit: cover;     /* kırpma yaparken oran korunsun */
+  border-radius: var(--radius);
+  margin-bottom: 0.8rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;    /* ortala */
+  transition: transform 0.3s ease;
+}
 
+.product-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Product Info */
 .product-card h4 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 .product-card p {
   font-size: 0.95rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   color: var(--muted);
 }
 
 .product-card .price {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
 
+/* Order Button */
 .product-card button {
   background: var(--accent);
   color: #fff;
@@ -251,11 +260,35 @@ nav a:hover {
   border-radius: var(--radius);
   cursor: pointer;
   font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .product-card button:hover {
   background: var(--gold);
+  transform: translateY(-2px);
 }
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center; /* kartları ortalar */
+  align-items: start;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  .product-card img {
+    height: 220px;
+    max-width: 150px;
+  }
+}
+
 
 /* Footer */
 footer {
