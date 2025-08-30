@@ -69,7 +69,7 @@ nav a:hover {
 /* Logo */
 .logo img {
   max-width: 80px; /* header için uygun boyut */
-  height: auto;
+  height: 50px;
   display: block;
 }
 
