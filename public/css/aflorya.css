@@ -317,10 +317,11 @@ footer {
    Logo
 -------------------------- */
 .logo img {
-  max-width: 120px;
+  width: 120px; /* kesin boyut ver */
   height: auto;
   display: block;
 }
+
 
 /* -------------------------
    Google Translate
