@@ -191,10 +191,9 @@ nav a:hover {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
   gap: 2rem;
 }
-
 
 .product-card {
   background: var(--card);
@@ -317,11 +316,10 @@ footer {
    Logo
 -------------------------- */
 .logo img {
-  width: 120px; /* kesin boyut ver */
+  max-width: 120px;
   height: auto;
   display: block;
 }
-
 
 /* -------------------------
    Google Translate
@@ -359,100 +357,4 @@ footer {
   display: block;
   margin: 0 auto;
   transition: opacity 0.3s ease;
-}
-/* -------------------------
-   Categories
--------------------------- */
-.categories {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1.5rem 0 2.5rem;
-}
-
-.category-btn {
-  padding: 0.6rem 1.4rem;
-  border: 2px solid var(--accent);
-  background: var(--card);
-  border-radius: 25px;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.category-btn:hover {
-  background: var(--accent);
-  color: #fff;
-}
-
-.category-btn.active {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: var(--shadow);
-}
-.product {
-  width: 250px;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  background: #fff;
-}
-
-.product img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  transition: transform 0.3s;
-}
-
-.product img:hover {
-  transform: scale(1.05);
-}
-
-.thumbnails {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.thumbnails img {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s, border 0.3s;
-}
-
-.thumbnails img:hover {
-  transform: scale(1.1);
-  border: 2px solid #25D366;
-}
-
-a.whatsapp {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #25D366;
-  color: white;
-  font-weight: bold;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
-a.whatsapp:hover {
-  background-color: #128C7E;
-}
-.product-card {
-  width: 100%; /* grid sütunu boyunca */
-}
-
-/* Logo boyutunu sabitle */
-header .logo img {
-  max-width: 120px;   /* sabit genişlik */
-  height: auto;
-  display: block;
 }
